@@ -59,11 +59,11 @@
     community.mysql.mysql_db:
      state: import
      name: all
-     login_user: "{{ login_user}}"
+     login_user: "{{ login_user }}"
      # root
-     login_password: "{{login_password}}"
+     login_password: "{{ login_password }}"
      #ExpenseApp@1
-     login_host: "{{login_hosts}}"
+     login_host: "{{ login_hosts }}"
      #mysql.vinaydevops.fun 
      target: /app/schema/backend.sql 
 
