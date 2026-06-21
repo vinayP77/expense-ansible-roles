@@ -59,9 +59,12 @@
     community.mysql.mysql_db:
      state: import
      name: all
-     login_user: root
-     login_password: ExpenseApp@1
-     login_host: mysql.vinaydevops.fun 
+     login_user: "{{ login_user}}"
+     # root
+     login_password: "{{login_password}}"
+     #ExpenseApp@1
+     login_host: "{{login_host}}"
+     #mysql.vinaydevops.fun 
      target: /app/schema/backend.sql 
 
   - name: daemon reload and restart service
