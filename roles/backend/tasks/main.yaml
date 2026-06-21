@@ -63,7 +63,7 @@
      # root
      login_password: "{{login_password}}"
      #ExpenseApp@1
-     login_host: "{{login_host}}"
+     login_host: "{{login_hosts}}"
      #mysql.vinaydevops.fun 
      target: /app/schema/backend.sql 
 
