@@ -1,0 +1,4 @@
+login_user: root
+login_hosts: db.vinaydevops.fun
+login_password: ExpenseApp@1
+DB_HOST: db.vinaydevops.fun
