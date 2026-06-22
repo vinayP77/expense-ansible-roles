@@ -15,7 +15,13 @@
 #    dest: /tmp/backend.zip
 #    dest: "{{ app_location }}"
 #    remotte_src: yes
-- name: download code
-  ansible.builtin.get_url:
-    url: "https://expense-builds.s3.us-east-1.amazonaws.com/expense-{{ component }}-v2.zip"
-    dest: /tmp/{{ component }}.zip 
+# - name: download code
+#   ansible.builtin.get_url:
+#     url: "https://expense-builds.s3.us-east-1.amazonaws.com/expense-{{ component }}-v2.zip"
+#     dest: /tmp/{{ component }}.zip 
+
+- name: extract code
+  ansible.builtin.unarchive:
+    src: /tmp/{{ component }}.zip
+    dest: "{{ app_location }}"
+    remote_src: yes
