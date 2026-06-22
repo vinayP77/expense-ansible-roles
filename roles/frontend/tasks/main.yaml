@@ -11,26 +11,10 @@
      enabled: yes
 
      # ansible remove files in a directory
-  - name: delete html directory
-    ansible.builtin.file:
-     path: /usr/share/nginx/html
-     state: absent
-
-  - name: create html directory
-    ansible.builtin.file:
-     path: /usr/share/nginx/html
-     state: directory   
-
-  - name: download frontend code
-    ansible.builtin.get_url:
-      url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-      dest:  /tmp/frontend.zip
-
-  - name: unzip frontend code
-    ansible.builtin.unarchive:
-     src: /tmp/frontend.zip
-     dest: /usr/share/nginx/html
-     remote_src: yes   
+  - name: run app pre-requisites
+    ansible.builtin.import_role:
+      name: common
+      tasks_from: app-pre-req 
     # if there is change configuration only ,then we need to restart nginx
   - name: copy expense config
     ansible.builtin.template:
